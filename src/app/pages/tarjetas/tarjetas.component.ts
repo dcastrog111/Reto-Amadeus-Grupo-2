@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { DestinoService } from '../../servicios/destino.service';
+import { DestinoService } from '@services/destino.service';
 import { Router } from '@angular/router';
+import { UsuarioComponent } from '../usuario/usuario.component';
 
 @Component({
   selector: 'app-tarjetas',

@@ -6,19 +6,19 @@
             <!--  -->
             <section class="container__main__card__avatar">
                 <!-- Full-width images with number and caption text -->
-                <div class="container__main__card__avatar--img fade">
+                <div #slidesElements class="container__main__card__avatar--img fade">
                     <img src="../../../assets/img/img-avatar/ava11.png" width="100%">
                 </div>
                 
-                <div class="container__main__card__avatar--img fade">
+                <div #slidesElements class="container__main__card__avatar--img fade">
                     <img src="../../../assets/img/img-avatar/ava12.png" width="100%">
                 </div>
                 
-                <div class="container__main__card__avatar--img fade">
+                <div #slidesElements class="container__main__card__avatar--img fade">
                     <img src="../../../assets/img/img-avatar/ava13.png" width="100%">
                 </div>
                 
-                <div class="container__main__card__avatar--img fade">
+                <div #slidesElements class="container__main__card__avatar--img fade">
                     <img src="../../../assets/img/img-avatar/ava14.png" width="100%">
                 </div>
             </section>
@@ -28,11 +28,14 @@
                 <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
                 <!--  The dots/circles  -->
                 <div class="container__main__card__dot">
-                    <span class="dot" (click)="currentSlide(1)"></span>
-                    <span class="dot" (click)="currentSlide(2)"></span>
-                    <span class="dot" (click)="currentSlide(3)"></span>
-                    <span class="dot" (click)="currentSlide(4)"></span>
-                </div> 
+                    <!--  Cada elemento se referencia con #dotElement para poder ser usado en el
+                            ViewChildren dentro del Controlador y así manipular los elementos -->
+                
+                    <span #dotElement class="dot" (click)="currentSlide(1)"></span>
+                    <span #dotElement class="dot" (click)="currentSlide(2)"></span>
+                    <span #dotElement class="dot" (click)="currentSlide(3)"></span>
+                    <span #dotElement class="dot" (click)="currentSlide(4)"></span>
+                </div>
                 <!--  Next button  -->
                 <a class="next" (click)="plusSlides(1)">&#10095;</a>
             </section>

@@ -5,7 +5,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { DestinoService } from '@services/destino.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -35,7 +35,7 @@ export class PerfilComponent implements AfterViewInit {
   @ViewChildren('slidesElements') slidesElements!: QueryList<ElementRef>;
   @ViewChildren('dotElement') dotElemets!: QueryList<ElementRef>;
 
-  constructor(public destinoService: DestinoService) {}
+  constructor(public destinoService: DestinoService, public router:Router) {}
 
   slideIndex: number = 1;
 
@@ -85,11 +85,28 @@ export class PerfilComponent implements AfterViewInit {
   nombre = new FormControl();
   correo = new FormControl(); 
 
-  datosUsuario(){
+  async datosUsuario(){
 
-    this.destinoService.nombreS = this.nombre.value;
-    this.destinoService.correoS = this.correo.value;
-    
+    //this.destinoService.nombreS = this.nombre.value;
+    //this.destinoService.correoS = this.correo.value;
+
+    //Creación de objeto para enviar datos de usuario
+    let objUsuario = {
+      name: this.nombre.value,
+      email: this.correo.value,
+    }
+
+    //Se llama al método POST del servicio para enviar los datos del usuario
+    await this.destinoService
+        .sendDestinity('/v1/user', objUsuario)
+        .then((response) => {
+                  //Se almacenan los datos del usuario en el sessionStorage
+                  window.sessionStorage.setItem("nombre", response.name);
+                  window.sessionStorage.setItem("email",response.email);
+                  window.sessionStorage.setItem("id", response.id);
+                }); 
+
+    let numeroAvatar = AvatarImages.AVATAR1;
     switch(this.slideIndex){
       case 1: {
         this.destinoService.avatar = AvatarImages.AVATAR1;
@@ -108,6 +125,12 @@ export class PerfilComponent implements AfterViewInit {
         break;
       }
     }
+
+    //Se almacena la ruta de imagen de avatar seleccionada en el sessionStorage
+    window.sessionStorage.setItem("avatar", numeroAvatar)
+
+    //Se redirige a la página de tarjetas despues de actualziar info de usuario
+    this.router.navigate(["/tarjetas"])
 
   }
 

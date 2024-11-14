@@ -6,7 +6,7 @@ import { UsuarioComponent } from '../usuario/usuario.component';
 @Component({
   selector: 'app-menu-navegacion',
   standalone: true,
-  imports: [RouterLink, IndexComponent, UsuarioComponent],
+  imports: [UsuarioComponent],
   templateUrl: './menu-navegacion.component.html',
   styleUrl: './menu-navegacion.component.css'
 })

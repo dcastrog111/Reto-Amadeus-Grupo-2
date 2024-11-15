@@ -167,22 +167,40 @@
 
 .opcion__link__item img{
     width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #c5d5f9;
 }
 
+.opcion__link__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
 
-.opcion__link__item .tooltiptext {
-    visibility: hidden;
-    width: 100px;
+.opcion__link__item .button{
     background-color: #000835;
-    color: #ffffff;
+    color: #c5d5f9;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
     text-align: center;
-    border-radius: 8px;
-    font-size: 13px;
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-  }
+    margin: 10px;
+}
 
+.opcion__link__item .button:hover{
+    background-color: #3a8bff;
+    color: #000835;
+}
+
+  
 .opcion__link__item:hover .tooltiptext {
     visibility: visible;
   }

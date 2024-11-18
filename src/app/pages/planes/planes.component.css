@@ -10,34 +10,32 @@
 
 .container {
   height: 90vh;
-  width: 100vh;
+  width: 100vw;
 }
 
-
-
-.conteiner__encabezado{
+.container__encabezado {
   background-color: #000835;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  color:  #fff;
+  color: #fff;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.conteiner__encabezado__imagen{
+.container__encabezado__imagen {
   width: 200px;
 }
 
-img {
-  max-width: 100%;
-  max-height: 100%;
+img{
+  width: 100%;
+  height: auto;
   object-fit: cover;
 }
 
-.container__hospedaje{
+.container__hospedaje {
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -46,31 +44,26 @@ img {
   gap: 20px;
 }
 
-.container_hospedaje_button{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  align-self: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.container_hospedaje_button__item{
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-.container_hospedaje_button{
+.container_hospedaje_button {
   background-color: #000835;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  align-self: center;
 }
 
-.container__vuelos{
+.container_hospedaje_button__item {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.container__vuelos {
   background-color: #000835;
   display: flex;
   flex-direction: column;
@@ -80,7 +73,7 @@ img {
   color: #fff;
 }
 
-.container__hospedaje__opciones{
+.container__hospedaje__opciones {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -90,31 +83,26 @@ img {
   padding-bottom: 20px;
 }
 
-.container_vuelos_button{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  align-self: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.container_vuelos_button__item{
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-.container_vuelos_button{
+.container_vuelos_button {
   background-color: #fff;
   color: #000835;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  align-self: center;
 }
 
-.container__hospedaje__opcion{
+.container_vuelos_button__item {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.container__hospedaje__opcion {
   display: flex;
   flex-direction: row;
   width: 40%;
@@ -122,18 +110,22 @@ img {
   gap: 30px;
 }
 
-.container__hospedaje__opcion__img{
-  width: 50%;
+.container__hospedaje__opcion__img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
-.container__hospedaje__opcion__info{
+
+.container__hospedaje__opcion__info {
   display: flex;
   flex-direction: column;
-  gap: 20px;  
+  gap: 20px;
   width: 50%;
+  justify-content: space-between;
 }
 
-
-.container__vuelos__opciones{
+.container__vuelos__opciones {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -143,7 +135,7 @@ img {
   padding-bottom: 20px;
 }
 
-.container__vuelos__opcion{
+.container__vuelos__opcion {
   display: flex;
   flex-direction: row;
   width: 40%;
@@ -151,15 +143,28 @@ img {
   gap: 30px;
 }
 
-h3{
+.container__vuelos__opcion__info{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  justify-content: space-between; 
+}
+
+.container_hospedaje_button,
+.container_vuelos_button{
+  margin-top: auto;
+}
+
+h3 {
   text-align: center;
 }
 
-h2{
+h2 {
   margin-top: 10px;
 }
 
-.opcion__link__item i{
+.opcion__link__item i {
   width: 30px;
   color: #fff;
 }
@@ -172,7 +177,6 @@ h2{
   text-align: center;
   border-radius: 8px;
   font-size: 13px;
-  /* Position the tooltip */
   position: absolute;
   z-index: 1;
 }

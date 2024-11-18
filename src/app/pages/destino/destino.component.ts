@@ -28,7 +28,7 @@ export class DestinoComponent {
     this.destino();
     setTimeout(() => {
       this.destino();
-    }, 2);
+    }, 3);
 
     //Actualiza la vista de la página cuando se carga la info de la BBDD
     this.changeDetectorRef.detectChanges();

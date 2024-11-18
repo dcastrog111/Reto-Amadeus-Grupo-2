@@ -26,12 +26,12 @@ export class DestinoComponent {
   ngOnInit(): void {
 
     this.destino();
-    // setTimeout(() => {
-    //   this.destino();
-    // }, 5);
+    setTimeout(() => {
+      this.destino();
+    }, 2);
 
     //Actualiza la vista de la página cuando se carga la info de la BBDD
-    //this.changeDetectorRef.detectChanges();
+    this.changeDetectorRef.detectChanges();
   }
 
   async destino() {

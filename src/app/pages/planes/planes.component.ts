@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DestinoService } from '@services/destino.service';
 import { RouterLink } from '@angular/router';
+import { SharedDataService } from '@services/share-data.service';
 
 @Component({
   selector: 'app-planes',
@@ -10,16 +11,38 @@ import { RouterLink } from '@angular/router';
   styleUrl: './planes.component.css'
 })
 export class PlanesComponent {
+  america: any[] = [];
+  europa: any[] = [];
+  hotelName: string = '';
+  description: string = '';
+  imgHotel: string = '';
 
-  constructor(public destinoService: DestinoService){}
 
-  destino = this.destinoService.destinoA;
-  srcA = this.destinoService.srcA;
-  srcE = this.destinoService.srcE;
-
-  // destino = "Playa del Carmen";
-  // srcA = "../../../assets/img/PlayaDelCarmen.jpg"
-
+  constructor(public destinoService: DestinoService
+    , private sharedDataService: SharedDataService
+  ){
+    this.america = this.sharedDataService.getAmerica();
+    this.europa = this.sharedDataService.getEuropa();
+    this.extractHotelDetails();
+  }
+  
+  extractHotelDetails(): void {
+    const selectedContinent = sessionStorage.getItem('selectedContinent');
+    if (selectedContinent === 'America' && this.america.length > 0) {
+      const hotel = this.america[0];
+      this.hotelName = hotel.nombreHotel;
+      this.description = hotel.descripcionHotel;
+      this.imgHotel = encodeURI(hotel.imgHotel);
+      console.log(this.imgHotel);
+    } else if (selectedContinent === 'Europa' && this.europa.length > 0) {
+      const hotel = this.europa[0];
+      this.hotelName = hotel.nombreHotel;
+      this.description = hotel.descripcionHotel;
+      this.imgHotel = hotel.imgHotel;
+      this.imgHotel = encodeURI(hotel.imgHotel);
+      console.log(this.imgHotel);
+    }
+  }
 
 
 }

@@ -8,9 +8,9 @@
 
     <h1 class="container__encabezado__titulo">Destino seleccionado:</h1>
     <div class="container__encabezado__imagen">
-      <img [src]="srcA" alt="Imagen del destino seleccionado"/>
+      <img [src]="" alt="Imagen del destino seleccionado"/>
     </div>
-    <h2 class="container__encabezado__nombre">{{destino}}</h2>
+    <h2 class="container__encabezado__nombre">{{hotelName}}</h2>
   </div>
 
   <div class="container__hospedaje">
@@ -41,15 +41,12 @@
   
       <div class="container__hospedaje__opcion">
         <div class="container__hospedaje__opcion__img">
-          <img src="../../../assets/img/Riu-palace.jpg" alt="Imagen del Riu Palace Hotel" />
+          <img [src]="imgHotel" alt="Imagen del {{hotelName}}" />
         </div>
 
         <div class="container__hospedaje__opcion__info">
-          <h3>Riu Palace Hotel</h3>
-          <p>
-            Se sitúa en Cancún, playa del carmen, cuenta con zona privada de
-            playa y piscina al aire libre, además de un spa y centro de bienestar.
-          </p>
+          <h3>{{hotelName}}</h3>
+          <p>{{description}}</p>
           <a class="container_hospedaje_button" href="https://www.riu.com/es/ofertas/unete-riu-class-LATAM.jsp?gad_source=1&gclid=Cj0KCQjwzva1BhD3ARIsADQuPnWnrDydr_vZS-uMKyFU8-40uzIbr8jLAtl4bm0wfBBc6RA8qa-zuUsaAmwUEALw_wcB&gclsrc=aw.ds">Explora tu Hotel</a>
         </div>
       </div>

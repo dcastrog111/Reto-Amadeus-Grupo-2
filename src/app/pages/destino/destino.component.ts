@@ -3,6 +3,7 @@ import { DestinoService } from '@services/destino.service';
 import { RouterLink, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
+import { SharedDataService } from '@services/share-data.service';
 
 @Component({
   selector: 'app-destino',
@@ -12,9 +13,11 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './destino.component.css',
 })
 export class DestinoComponent {
+  
   constructor(public destinoService: DestinoService,
     public router: Router, 
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private sharedDataService: SharedDataService
   ) {}
 
   control: boolean = true;
@@ -68,5 +71,13 @@ export class DestinoComponent {
       (destino) =>
         destino.continente === 'Europa' || destino.continente === 'Asia'
     );
+
+    // Almacena los datos en el servicio compartido
+    this.sharedDataService.setAmerica(this.america);
+    this.sharedDataService.setEuropa(this.europa);
+  }
+
+  selectContinent(continent: string): void {
+    sessionStorage.setItem('selectedContinent', continent);
   }
 }

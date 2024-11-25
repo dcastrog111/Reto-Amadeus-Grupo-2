@@ -16,6 +16,8 @@ export class PlanesComponent {
   hotelName: string = '';
   description: string = '';
   imgHotel: string = '';
+  img: string = '';
+  name: string = '';
 
 
   constructor(public destinoService: DestinoService
@@ -33,13 +35,15 @@ export class PlanesComponent {
       this.hotelName = hotel.nombreHotel;
       this.description = hotel.descripcionHotel;
       this.imgHotel = encodeURI(hotel.imgHotel);
+      this.img = encodeURI(hotel.img);
+      this.name = hotel.nombreDestino;
       console.log(this.imgHotel);
     } else if (selectedContinent === 'Europa' && this.europa.length > 0) {
       const hotel = this.europa[0];
       this.hotelName = hotel.nombreHotel;
       this.description = hotel.descripcionHotel;
-      this.imgHotel = hotel.imgHotel;
       this.imgHotel = encodeURI(hotel.imgHotel);
+      this.img = encodeURI(hotel.img);
       console.log(this.imgHotel);
     }
   }

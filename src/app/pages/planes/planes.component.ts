@@ -45,6 +45,7 @@ export class PlanesComponent {
       this.description = hotel.descripcionHotel;
       this.imgHotel = encodeURI(hotel.imgHotel);
       this.img = encodeURI(hotel.img);
+      this.name = hotel.nombreDestino;
       this.urlHotel = hotel.urlHotel;
     }
   }

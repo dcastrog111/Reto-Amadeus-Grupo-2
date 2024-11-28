@@ -54,7 +54,7 @@ export class PerfilComponent implements AfterViewInit {
 
   showSlides(n: number): void {
     /**
-     * Convertir QueryList en un array para poder iterar sobre cada elemento del DOM, 
+     * Convertir QueryList en un array para poder iterar sobre cada elemento del DOM,
      * en este caso los slides y los dots.
      */
     const slides = this.slidesElements.toArray();
@@ -83,7 +83,7 @@ export class PerfilComponent implements AfterViewInit {
   }
 
   nombre = new FormControl();
-  correo = new FormControl(); 
+  correo = new FormControl();
 
   async datosUsuario(){
 
@@ -104,9 +104,9 @@ export class PerfilComponent implements AfterViewInit {
                   window.sessionStorage.setItem("nombre", response.name);
                   window.sessionStorage.setItem("email",response.email);
                   window.sessionStorage.setItem("id", response.id);
-                }); 
+                });
 
-    let numeroAvatar = AvatarImages.AVATAR1;
+    // let numeroAvatar = AvatarImages.AVATAR1;
     switch(this.slideIndex){
       case 1: {
         this.destinoService.avatar = AvatarImages.AVATAR1;
@@ -127,7 +127,7 @@ export class PerfilComponent implements AfterViewInit {
     }
 
     //Se almacena la ruta de imagen de avatar seleccionada en el sessionStorage
-    window.sessionStorage.setItem("avatar", numeroAvatar)
+    window.sessionStorage.setItem("avatar", String(this.destinoService.avatar));
 
     //Se redirige a la página de tarjetas despues de actualziar info de usuario
     this.router.navigate(["/tarjetas"])
@@ -146,12 +146,12 @@ export class PerfilComponent implements AfterViewInit {
     }
   }
 
-  
+
   verificarCorreo(event: Event): void {
-    
+
     const regEmail = /^(([^<>()\[\]\.,;:\s@"]+(\.[^<>()\[\]\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
     const correoUsuario = this.correo.value;
-    
+
     const checkbox = document.getElementById('data-accepted') as HTMLInputElement;
 
     if (!regEmail.test(correoUsuario) || !checkbox.checked) {

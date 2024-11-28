@@ -23,12 +23,12 @@ export class UsuarioComponent implements OnInit, OnDestroy {
   ruta: String = "";
 
   ngOnInit(): void {
-    
+
     this.routerSubscription = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         this.obtenerDatosUsuario()
-        this.ruta = this.router.url;        
+        this.ruta = this.router.url;
       });
   }
 
